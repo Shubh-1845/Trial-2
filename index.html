@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hydrogen Fuel Cells vs Fossil Fuels</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="particles-js"></div>
+  <div id="game-container">
+    <h1>Hydrogen Fuel Cells vs Fossil Fuels</h1>
+    <p>Roll the dice and race to the finish line! Each step comes with its own challenge or boost.</p>
+
+    <!-- Race Tracks -->
+    <div id="tracks">
+      <div>
+        <h3>Hydrogen Track</h3>
+        <div id="hydrogen-track" class="track-grid"></div>
+      </div>
+      <div>
+        <h3>Fossil Fuel Track</h3>
+        <div id="fossil-track" class="track-grid"></div>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div id="actions">
+      <h3 id="turn-indicator">Hydrogen's Turn</h3>
+      <button class="button" onclick="rollDice()">Roll Dice</button>
+      <div id="dice-animation"></div>
+      <p id="scenario"></p>
+    </div>
+
+    <!-- Winner Announcement -->
+    <div id="winner-banner" style="display: none;"></div>
+
+    <!-- Restart Button -->
+    <div id="restart-area" style="display: none;">
+      <button class="button restart-button" onclick="restartGame()">Restart Game</button>
+    </div>
+  </div>
+
+  <!-- Script Links -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
