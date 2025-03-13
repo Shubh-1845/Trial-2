@@ -1,4 +1,4 @@
-
+/* Global body styles */
 body {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -7,8 +7,12 @@ body {
   margin: 0;
   padding: 0;
   color: #333;
+  /* Adding a gradient overlay for better readability */
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('https://example.com/ocean-and-sun.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
+/* Particles.js container */
 #particles-js {
   position: absolute;
   top: 0;
@@ -18,17 +22,24 @@ body {
   z-index: -1;
 }
 
+/* Main game container */
 #game-container {
   position: relative;
   z-index: 2;
+  padding: 20px; /* Add padding to create space around the content */
 }
 
+/* Heading Styles */
 h1 {
   background-color: rgba(76, 175, 80, 0.9);
   color: white;
   padding: 15px;
+  font-size: 36px;
+  border-radius: 10px; /* Rounded corners for a smoother look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
 }
 
+/* Tracks container */
 #tracks {
   display: flex;
   justify-content: center;
@@ -36,6 +47,7 @@ h1 {
   margin: 20px;
 }
 
+/* Track grid layout */
 .track-grid {
   display: grid;
   grid-template-columns: repeat(5, 40px); /* 5 columns */
@@ -47,6 +59,7 @@ h1 {
   border-radius: 10px;
 }
 
+/* Individual track cell styling */
 .track-grid div {
   width: 40px;
   height: 40px;
@@ -55,21 +68,26 @@ h1 {
   align-items: center;
   border-radius: 5px;
   font-size: 18px;
+  transition: background-color 0.3s ease; /* Smooth transition for background change */
 }
 
+/* Hydrogen track cells */
 #hydrogen-track div {
   background-color: #d8f2e7;
 }
 
+/* Fossil fuel track cells */
 #fossil-track div {
   background-color: #fce4d6;
 }
 
+/* Occupied track cells */
 .track-grid div.occupied {
   background-color: #76c7c0; /* Highlight occupied squares */
   color: white;
 }
 
+/* Button styles */
 button {
   margin: 10px;
   padding: 10px 20px;
@@ -79,12 +97,15 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
   background-color: #45a049;
+  transform: scale(1.05); /* Slight scale effect on hover */
 }
 
+/* Restart button with a different color */
 button.restart-button {
   background-color: #2196F3;
 }
@@ -93,6 +114,7 @@ button.restart-button:hover {
   background-color: #1E88E5;
 }
 
+/* Dice animation box */
 #dice-animation {
   margin: 20px auto;
   width: 50px;
@@ -107,6 +129,7 @@ button.restart-button:hover {
   animation: roll 1s linear infinite;
 }
 
+/* Dice roll animation */
 @keyframes roll {
   0% { transform: rotate(0deg); }
   25% { transform: rotate(90deg); }
@@ -115,6 +138,7 @@ button.restart-button:hover {
   100% { transform: rotate(360deg); }
 }
 
+/* Winner banner styling */
 #winner-banner {
   font-size: 32px;
   font-weight: bold;
@@ -127,6 +151,7 @@ button.restart-button:hover {
   animation: fadeIn 1s ease-in-out;
 }
 
+/* Fade-in animation for the winner banner */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
