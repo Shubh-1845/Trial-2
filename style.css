@@ -56,6 +56,29 @@ h1 {
   justify-content: space-around; /* Centers and spaces items in the container */
 }
 
+/* VS Text styling */
+#vs-text {
+  font-family: 'Roboto', sans-serif; /* Cool font choice */
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow effect for depth */
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for contrast */
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  display: inline-block; /* Keeps it in-line with other elements */
+  text-transform: uppercase; /* Adds emphasis to the text */
+  animation: vsGlow 2s infinite alternate; /* Added glowing animation */
+}
+
+/* Glowing animation for the VS text */
+@keyframes vsGlow {
+  0% { text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); }
+  50% { text-shadow: 0 0 15px rgba(255, 0, 0, 0.6), 0 0 20px rgba(0, 255, 0, 0.6); }
+  100% { text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); }
+}
+
 /* Track grid layout */
 .track-grid {
   display: grid;
