@@ -1,7 +1,8 @@
-
 let hydrogenPosition = 0; // Position of the hydrogen piece
 let fossilPosition = 0; // Position of the fossil fuel piece
 let isHydrogenTurn = true; // Whose turn it is (true for hydrogen)
+let hydrogenCharacter = "🚗"; // Default Hydrogen character
+let fossilCharacter = "🛢️"; // Default Fossil Fuel character
 
 const totalSquares = 20; // Total number of squares on the track
 
@@ -13,11 +14,11 @@ function createTracks() {
   // Create 20 squares for each track
   for (let i = 0; i < totalSquares; i++) {
     const hydrogenSquare = document.createElement("div");
-    hydrogenSquare.textContent = ""; // Leave content empty initially
+    hydrogenSquare.textContent = "";
     hydrogenTrack.appendChild(hydrogenSquare);
 
     const fossilSquare = document.createElement("div");
-    fossilSquare.textContent = ""; // Leave content empty initially
+    fossilSquare.textContent = "";
     fossilTrack.appendChild(fossilSquare);
   }
 
@@ -32,30 +33,48 @@ function updateTracks() {
   // Clear both tracks to remove any previous positions
   Array.from(hydrogenTrack).forEach((square) => {
     square.textContent = "";
-    square.classList.remove("occupied"); // Remove previous occupied class
+    square.classList.remove("occupied");
   });
   Array.from(fossilTrack).forEach((square) => {
     square.textContent = "";
-    square.classList.remove("occupied"); // Remove previous occupied class
+    square.classList.remove("occupied");
   });
 
   // Place the hydrogen piece at its current position
   if (hydrogenPosition < totalSquares) {
-    hydrogenTrack[hydrogenPosition].textContent = "🚗";
+    hydrogenTrack[hydrogenPosition].textContent = hydrogenCharacter;
     hydrogenTrack[hydrogenPosition].classList.add("occupied");
   }
 
   // Place the fossil fuel piece at its current position
   if (fossilPosition < totalSquares) {
-    fossilTrack[fossilPosition].textContent = "🛢️";
+    fossilTrack[fossilPosition].textContent = fossilCharacter;
     fossilTrack[fossilPosition].classList.add("occupied");
   }
 }
 
+// Select Hydrogen character
+document.getElementById("hydrogen-button").addEventListener("click", () => {
+  hydrogenCharacter = prompt("Enter Hydrogen's character (emoji or text):", "🚗");
+  document.getElementById("character-selection").style.display = "none";
+  document.getElementById("tracks").style.display = "block";
+  document.getElementById("actions").style.display = "block";
+  updateTracks();
+});
+
+// Select Fossil Fuel character
+document.getElementById("fossil-button").addEventListener("click", () => {
+  fossilCharacter = prompt("Enter Fossil Fuel's character (emoji or text):", "🛢️");
+  document.getElementById("character-selection").style.display = "none";
+  document.getElementById("tracks").style.display = "block";
+  document.getElementById("actions").style.display = "block";
+  updateTracks();
+});
+
 // Roll the dice, apply scenarios, and move the current player's piece
 function rollDice() {
   const diceAnimation = document.getElementById("dice-animation");
-  diceAnimation.textContent = "🎲"; // Temporary dice display
+  diceAnimation.textContent = "🎲";
   diceAnimation.style.animation = "roll 1s linear"; // Apply animation
 
   setTimeout(() => {
@@ -68,9 +87,9 @@ function rollDice() {
 
     // Update the position of the current player's piece
     if (isHydrogenTurn) {
-      hydrogenPosition = Math.min(hydrogenPosition + diceRoll + scenarioEffect, totalSquares - 1); // Prevent moving beyond the track
+      hydrogenPosition = Math.min(hydrogenPosition + diceRoll + scenarioEffect, totalSquares - 1);
     } else {
-      fossilPosition = Math.min(fossilPosition + diceRoll + scenarioEffect, totalSquares - 1); // Prevent moving beyond the track
+      fossilPosition = Math.min(fossilPosition + diceRoll + scenarioEffect, totalSquares - 1);
     }
 
     // Update the scenario text
@@ -146,6 +165,8 @@ function restartGame() {
   hydrogenPosition = 0; // Reset hydrogen piece position
   fossilPosition = 0; // Reset fossil fuel piece position
   isHydrogenTurn = true; // Reset to hydrogen's turn
+  hydrogenCharacter = "🚗"; // Reset hydrogen character
+  fossilCharacter = "🛢️"; // Reset fossil fuel character
 
   const winnerBanner = document.getElementById("winner-banner");
   const actionsArea = document.getElementById("actions");
