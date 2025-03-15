@@ -12,14 +12,22 @@
     <h1>Hydrogen Fuel Cells vs Fossil Fuels</h1>
     <p>Roll the dice and race to the finish line! Each step comes with its own challenge or boost.</p>
 
+    <!-- Character Selection -->
+    <div id="character-selection">
+      <h3>Select Your Character</h3>
+      <div>
+        <button id="hydrogen-button" class="character-button">Hydrogen 🚗</button>
+        <button id="fossil-button" class="character-button">Fossil Fuel 🛢️</button>
+      </div>
+    </div>
+
     <!-- Race Tracks -->
-    <div id="tracks">
+    <div id="tracks" style="display: none;">
       <div>
         <h3>Hydrogen Track</h3>
         <div id="hydrogen-track" class="track-grid"></div>
       </div>
 
-      <!-- VS Text -->
       <div id="vs-text">VS</div>
 
       <div>
@@ -29,7 +37,7 @@
     </div>
 
     <!-- Actions -->
-    <div id="actions">
+    <div id="actions" style="display: none;">
       <h3 id="turn-indicator">Hydrogen's Turn</h3>
       <button class="button" onclick="rollDice()">Roll Dice</button>
       <div id="dice-animation"></div>
