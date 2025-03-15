@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,22 +13,14 @@
     <h1>Hydrogen Fuel Cells vs Fossil Fuels</h1>
     <p>Roll the dice and race to the finish line! Each step comes with its own challenge or boost.</p>
 
-    <!-- Character Selection -->
-    <div id="character-selection">
-      <h3>Select Your Character</h3>
-      <div>
-        <button id="hydrogen-button" class="character-button">Hydrogen 🚗</button>
-        <button id="fossil-button" class="character-button">Fossil Fuel 🛢️</button>
-      </div>
-    </div>
-
     <!-- Race Tracks -->
-    <div id="tracks" style="display: none;">
+    <div id="tracks">
       <div>
         <h3>Hydrogen Track</h3>
         <div id="hydrogen-track" class="track-grid"></div>
       </div>
 
+      <!-- VS Text -->
       <div id="vs-text">VS</div>
 
       <div>
@@ -37,7 +30,7 @@
     </div>
 
     <!-- Actions -->
-    <div id="actions" style="display: none;">
+    <div id="actions">
       <h3 id="turn-indicator">Hydrogen's Turn</h3>
       <button class="button" onclick="rollDice()">Roll Dice</button>
       <div id="dice-animation"></div>
@@ -52,30 +45,9 @@
       <button class="button restart-button" onclick="restartGame()">Restart Game</button>
     </div>
   </div>
-
-  <!-- Confetti.js library -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-
-  <!-- Trigger confetti when a winner is announced -->
-  <script>
-    function triggerConfetti() {
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { x: 0.5, y: 0.5 }
-      });
-    }
-
-    // Example: Trigger confetti when winner is displayed
-    function announceWinner() {
-      document.getElementById('winner-banner').innerHTML = 'Hydrogen Wins!'; // Just an example
-      document.getElementById('winner-banner').style.display = 'block'; // Show the winner banner
-      triggerConfetti(); // Start confetti effect
-    }
-
-    // Call announceWinner() after the game ends, based on your game logic
-  </script>
-
+  
+  <!-- Script Links -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
